@@ -1,0 +1,45 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+%opening
+\title{Dimostrazioni della irriducibilità della rappresentazione standard di $S_n$}
+\author{Bruno Bucciotti}
+
+\def\ro{$\rho$}
+\def\ros{$\rho_{std}$}
+\def\rop{$\rho_{perm}$}
+\def\Cn{\ensuremath{\mathbb{C}}^n}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Dimostro l'irriducibilità della rappresentazione standard di $S_n$ e mi esercito con \LaTeX.
+\end{abstract}
+
+\section*{Definizione di \ros}
+Partiamo definendo \rop\, come la rappresentazione per permutazione di $S_n$ agente su $\Cn$, \rop $: G \rightarrow GL(\Cn)$. Chiamo $u = \sum_{f\in S_n} e_f$ e osservo che \rop(u) = u. Dunque \rop\, agisce come la rappresentazione banale sul sottospazio $<u>$. Definisco \ros\, la rappresentazione \rop\, meno la banale; \ros\, è definita sul sottospazio di $\Cn$ tale che la somma delle coordinate sia 0. La tesi è che questa rappresentazione è irriducibile.
+
+\section{Caratteri}
+\subsection{Definizioni}
+Azione transitiva: una azione di G gruppo su X insieme si dice transitiva se $\forall x, y \in X\, \exists g\in G\,|\, gx = y$.\\
+Azione doppiamente transitiva: data una azione $A$ di G gruppo su X insieme ho una azione $B$ di G indotta su $X^2$ in cui agisco con $A$ su ciascuno dei 2 elementi. Dico $A$ transitiva se date qualunque due coppie $(x,y),\,(x',y')\in X^2$ con $x\neq y$ e $x'\neq y'$	esiste $g\in G$ per cui $gx=x'$ e $gy=y'$. Osservo che $A$ doppiamente transitiva implica $A$ transitiva. Osservo inoltre che $B$ ha 2 orbite: $[(x,x)]$ e $[(x,y)]$ con $x\neq y \in X$.
+\subsection{Lemma}
+Suppongo $A$ doppiamente transitiva e applico il lemma di Burnside all'azione indotta $B$.
+\[2 = \dfrac{1}{|G|} \sum_{g\in G} |Stab_B(g)|\]
+Se suppongo che gli elementi di X fissati da $A(g)$ siano $\{a, b, c, ..\}$ allora $B(g)$ fissa $\{(a,a), (a,b), (a,c), (b,a), (b,b),..\}$, cioè tutte le possibile coppie ordinate di questi. Dunque se $|Stab_A(g)| = n_g$ allora $|Stab_B(g)| = n_g ^2$. Arrivo dunque a
+\[\dfrac{1}{|G|} \sum_{g\in G} |Stab_A(g)|^2 = 2\]
+\subsection{Proof}
+Osservo che \rop\, è doppiamente transitiva, poichè fissati 4 elementi $a\neq b,\, c\neq d$ ho che, supposto $a\neq d$, $(ac)(bd)$ manda $(a,b)\rightarrow (c, d)$; se invece $a=d$ allora ho che $(acb)$ manda $(a,b)\rightarrow(c,a)$. Calcolo allora
+\[<\chi_{\rho_{perm}}, \chi_{\rho_{perm}}> = <\chi_{\rho_{triv}}, \chi_{\rho_{triv}}> + 2<\chi_{\rho_{triv}}, \chi_{\rho_{std}}> + <\chi_{\rho_{std}}, \chi_{\rho_{std}}>\]
+\[=  1 + 2<\chi_{\rho_{triv}}, \chi_{\rho_{std}}> + <\chi_{\rho_{std}}, \chi_{\rho_{std}}>\]
+\[= \dfrac{1}{|G|} \sum_{g\in G} |Stab_{\rho_{perm}} (g)|^2 = 2\]
+da cui \ros\, irriducibile (e ortogonale alla banale).
+\end{document}
